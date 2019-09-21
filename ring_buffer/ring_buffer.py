@@ -7,20 +7,14 @@ class RingBuffer:
     
 
   def append(self, item):
-      if self.current < len(self.storage):
-        # print(self.current)
-        # if self.storage[self.current] is not None:
-        #   self.current += 1
-        ##   print(self.current)
-        if self.storage[self.current] is None:
-          self.storage[self.current] = item
-          self.current += 1
-          print(self.storage)
-        else:
-            while self.storage[self.current] is not None:
-                self.current += 1
-            self.storage[self.current] = item
-            
+      self.storage[self.current] = item
+      self.current += 1
+      if self.current == self.capacity:
+        self.current = 0
+        print('hello world')
+      
+      print(self.storage)
+      
           
         
           
@@ -33,24 +27,13 @@ class RingBuffer:
     
 
   def get(self):
-    i = 0
-    temp = self.storage
-    while i < len(self.storage) -1:
-      i += 1
-      print('this is I')
-      print(i)
-      if self.storage[i] is None:
-       # print(i)
-        temp = self.storage[:i]
-        break
-      else:
-        self.storage = self.storage
+    temp = []
     
-    self.current = 0
-    i = 0
-
+    for i in range(0, len(self.storage)):
+      if self.storage[i] is not None:
+        temp.append(self.storage[i])
     return temp
-       
+   
        
        
 

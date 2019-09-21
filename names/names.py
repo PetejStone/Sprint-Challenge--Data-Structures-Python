@@ -20,3 +20,12 @@ end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
+
+
+# Create binary search tree
+##use insert, insert all names in names_1
+## traverse through names_2 and use contains against names_1
+#####if true, append to duplicates
+
+
+
