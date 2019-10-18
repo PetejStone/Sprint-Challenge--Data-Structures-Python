@@ -2,36 +2,26 @@
 class RingBuffer:
   def __init__(self, capacity):
     self.capacity = capacity
-    self.current = 0
-    self.storage = [None]*capacity
+    self.current = 0 #current index
+    self.storage = [None]*capacity #default is an array of None
     
 
   def append(self, item):
-      self.storage[self.current] = item
-      self.current += 1
-      if self.current == self.capacity:
-        self.current = 0
+      self.storage[self.current] = item #self.storage -- item and 0 == current item passed in
+      self.current += 1 #after appended, go to next index
+      if self.current == self.capacity: # if at capacity
+        self.current = 0 #reset the index to 0, which is the oldest in the list
         print('hello world')
       
       print(self.storage)
       
-          
-        
-          
-        
-      
-      
-      
-      
-      
-    
 
   def get(self):
-    temp = []
+    temp = [] #temp array
     
-    for i in range(0, len(self.storage)):
-      if self.storage[i] is not None:
-        temp.append(self.storage[i])
+    for i in range(0, len(self.storage)): #for every item in storage
+      if self.storage[i] is not None: #if that item is not None
+        temp.append(self.storage[i]) #append that item to the temp array.
     return temp
    
        
